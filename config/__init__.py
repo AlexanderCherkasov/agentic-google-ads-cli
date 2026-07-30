@@ -1,0 +1,3 @@
+from config.settings import BASE_DIR, CONFIG_FILE_PATH, DEFAULT_CUSTOMER_ID
+
+__all__ = ["BASE_DIR", "CONFIG_FILE_PATH", "DEFAULT_CUSTOMER_ID"]

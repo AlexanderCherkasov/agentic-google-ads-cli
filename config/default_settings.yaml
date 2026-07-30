@@ -1,0 +1,30 @@
+# Global Configuration & Parameter Settings (No Magic Numbers)
+
+api:
+  micros_per_currency_unit: 1000000
+  batch_mutation_size: 50
+  default_search_limit: 50
+  oauth_server_port: 8085
+  oauth_fallback_port: 0
+
+defaults:
+  currency_code: "USD"
+  time_zone: "America/New_York"
+  language_code: "en"
+  country_code: "US"
+  target_country: "United States"
+  target_language: "English"
+  advertising_channel_type: "SEARCH"
+  bidding_strategy: "MANUAL_CPC"
+  delivery_method: "STANDARD"
+  default_cpc_bid_usd: 0.50
+  default_daily_budget_usd: 20.00
+  default_campaign_status: "PAUSED"
+
+ad_constraints:
+  headline_max_len: 30
+  description_max_len: 90
+  headlines_min: 3
+  headlines_max: 15
+  descriptions_min: 2
+  descriptions_max: 4

@@ -1,0 +1,38 @@
+# Virtual Environment
+venv/
+.venv/
+env/
+ENV/
+
+# Python Cache & Testing
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Credentials, Keys & Secret Configs (DO NOT COMMIT)
+google-ads.yaml
+google-ads.yaml*
+.env
+.env.*
+!.env.example
+client_secrets.json
+*.pem
+*.key
+*.secret
+
+# Local Campaign Specifications (DO NOT COMMIT PRIVATE CAMPAIGN SPECS)
+campaign_specs/
+*.md.tmp
+
+# Reports & Temp Outputs
+reports/
+*.log
+
+# IDEs & System Files
+.vscode/
+.idea/
+.DS_Store
+*.swp

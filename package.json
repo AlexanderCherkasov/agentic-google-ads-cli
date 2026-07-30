@@ -1,0 +1,32 @@
+{
+  "name": "agentic-google-ads-cli",
+  "version": "1.0.0",
+  "description": "Agentic Google Ads CLI & Modular Bidirectional Synchronization Engine for AI Agents",
+  "main": "bin/ads-cli",
+  "bin": {
+    "ads-cli": "./bin/ads-cli",
+    "agentic-google-ads-cli": "./bin/ads-cli"
+  },
+  "scripts": {
+    "postinstall": "./bin/ads-cli --help > /dev/null 2>&1 || true"
+  },
+  "keywords": [
+    "agentic-skill",
+    "skills",
+    "google-ads",
+    "google-ads-api",
+    "ai-agent",
+    "antigravity",
+    "bidirectional-sync",
+    "marketing-automation"
+  ],
+  "skills": {
+    "google-ads-automation": "./skills/google-ads-automation/SKILL.md"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexanderCherkasov/agentic-google-ads-cli.git"
+  },
+  "author": "Alexander Cherkasov",
+  "license": "MIT"
+}
