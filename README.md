@@ -25,6 +25,45 @@ npx agentic-google-ads-cli apply
 
 ---
 
+## 🔑 Required Tokens & Credentials Guide
+
+To connect with Google Ads API, you need the following tokens and IDs:
+
+| Token / Parameter | Source / Where to Obtain | Description |
+| :--- | :--- | :--- |
+| **`GOOGLE_ADS_CLIENT_ID`** | [Google Cloud Console](https://console.cloud.google.com/apis/credentials) | OAuth 2.0 Client ID (Web/Desktop Application) |
+| **`GOOGLE_ADS_CLIENT_SECRET`** | [Google Cloud Console](https://console.cloud.google.com/apis/credentials) | OAuth 2.0 Client Secret |
+| **`GOOGLE_ADS_DEVELOPER_TOKEN`** | Google Ads MCC (`Tools ➡️ API Center`) | Developer token to execute API operations |
+| **`GOOGLE_ADS_CUSTOMER_ID`** | Google Ads Account (top-right header) | 10-digit target customer ID (e.g., `1234567890`) |
+| **`GOOGLE_ADS_LOGIN_CUSTOMER_ID`** | Google Ads MCC Manager Account | *(Optional)* 10-digit MCC manager ID |
+| **`GOOGLE_ADS_REFRESH_TOKEN`** | Auto-generated via `./bin/ads-cli auth` | Persistent OAuth2 refresh token |
+
+### 🛠️ Step-by-Step Acquisition Guide:
+
+1. **Get Client ID & Client Secret**:
+   - Go to [Google Cloud Console Credentials](https://console.cloud.google.com/apis/credentials).
+   - Create a project and enable the **Google Ads API**.
+   - Create **OAuth 2.0 Client IDs** (Application type: Desktop App or Web App with redirect URI `http://localhost:8085/`).
+   - Copy your `Client ID` and `Client Secret`.
+
+2. **Get Developer Token**:
+   - Log into your Google Ads Manager (MCC) Account.
+   - Go to `Tools & Settings ➡️ API Center`.
+   - Request a **Developer Token** (Test Account Access or Basic Access).
+
+3. **Generate OAuth Refresh Token Automatically**:
+   Run the CLI authorization command:
+   ```bash
+   ./bin/ads-cli auth \
+     --client_id "YOUR_CLIENT_ID" \
+     --client_secret "YOUR_CLIENT_SECRET" \
+     --developer_token "YOUR_DEVELOPER_TOKEN" \
+     --customer_id "YOUR_CUSTOMER_ID"
+   ```
+   *This automatically launches a browser login window and saves your persistent `refresh_token` into `.env` and `google-ads.yaml`!*
+
+---
+
 ## 🔄 Bidirectional Synchronization Overview
 
 ```text
@@ -83,26 +122,6 @@ npx agentic-google-ads-cli apply
 ├── requirements.txt
 └── README.md
 ```
-
----
-
-## 🔑 Account Authorization
-
-### Step 1: Run Interactive Setup
-```bash
-python scripts/setup_account.py
-```
-
-### Step 2: Generate & Save OAuth2 Credentials Automatically
-Run `generate_tokens.py` with your credentials:
-```bash
-./bin/ads-cli auth \
-  --client_id "YOUR_CLIENT_ID" \
-  --client_secret "YOUR_CLIENT_SECRET" \
-  --developer_token "YOUR_DEVELOPER_TOKEN" \
-  --customer_id "YOUR_CUSTOMER_ID"
-```
-*`google-ads.yaml` will be automatically populated with your refresh token!*
 
 ---
 

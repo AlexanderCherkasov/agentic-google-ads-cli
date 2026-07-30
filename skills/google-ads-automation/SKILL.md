@@ -9,6 +9,21 @@ This skill enables AI agents and developers to automate Google Ads campaign mana
 
 ---
 
+## 🔑 Required Tokens & Credentials Guide
+
+To connect with Google Ads API, the agent or user must provide the following tokens:
+
+| Token / Parameter | Source / Where to Obtain | Description |
+| :--- | :--- | :--- |
+| **`GOOGLE_ADS_CLIENT_ID`** | [Google Cloud Console](https://console.cloud.google.com/apis/credentials) | OAuth 2.0 Client ID (Web/Desktop Application) |
+| **`GOOGLE_ADS_CLIENT_SECRET`** | [Google Cloud Console](https://console.cloud.google.com/apis/credentials) | OAuth 2.0 Client Secret |
+| **`GOOGLE_ADS_DEVELOPER_TOKEN`** | Google Ads MCC (`Tools ➡️ API Center`) | Developer token to execute API operations |
+| **`GOOGLE_ADS_CUSTOMER_ID`** | Google Ads Account (top-right header) | 10-digit target customer ID (e.g., `1234567890`) |
+| **`GOOGLE_ADS_LOGIN_CUSTOMER_ID`** | Google Ads MCC Manager Account | *(Optional)* 10-digit MCC manager ID |
+| **`GOOGLE_ADS_REFRESH_TOKEN`** | Auto-generated via `./bin/ads-cli auth` | Persistent OAuth2 refresh token |
+
+---
+
 ## 🛠️ Zero-Setup & Self-Bootstrapping CLI (`./bin/ads-cli`)
 
 The CLI launcher is **100% self-bootstrapping**: running `./bin/ads-cli` automatically checks, creates the Python virtual environment (`venv`), and installs all required dependencies on-the-fly.
@@ -74,7 +89,7 @@ View a clean status table of all active campaigns and budgets:
 Export performance analytics (impressions, clicks, cost, conversions, CTR, avg CPC) to Markdown table or CSV:
 ```bash
 ./bin/ads-cli report --period LAST_30_DAYS --format markdown
-./bin/ads-cli report --period THIS_MONTH --format csv --output reports/monthly.csv
+./bin/ads-cli report --period THIS_MONTH --format csv --output reports/monthly_performance.csv
 ```
 
 ---
